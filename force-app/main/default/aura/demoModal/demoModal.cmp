@@ -1,0 +1,97 @@
+<aura:component controller='CustPriceInvoiceApx'>
+    <aura:attribute name="isOpen" type="boolean" default="false"/>
+    <aura:attribute name="datarecId" type="string" />
+    <aura:attribute name="Accountrec" type="Account[]" />
+    <aura:attribute name="ContactRec" type="Contact[]" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <div class="slds-m-around_xx-large">
+        
+        
+        <div>
+            <table class="slds-table slds-table--bordered slds-table--striped">
+                <thead>
+                    <tr>
+                        <th><strong> ID </strong></th>
+                        <th> <strong>  Name </strong> </th>
+                        <th> <strong>  Action </strong> </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <aura:iteration items="{!v.Accountrec}" var="acc" >
+                        <tr>
+                            
+                            <td>  {!acc.Id} </td>
+                            <td> {!acc.Name}  </td>
+                            <td> 
+                                <lightning:button variant="brand"
+                                                  label="Get Contact"
+                                                  title="Get Contact"
+                                                  onclick="{!c.openModel}" value="{!acc.Id}"/> 
+                            </td>
+                        </tr>
+                        
+                    </aura:iteration>
+                </tbody>
+            </table>
+            
+            
+        </div>
+        
+        
+        
+        
+        
+        <aura:if isTrue="{!v.isOpen}">
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <header class="slds-modal__header">
+                        <lightning:buttonIcon iconName="utility:close"
+                                              onclick="{! c.closeModel }"
+                                              alternativeText="close"
+                                              variant="bare-inverse"
+                                              class="slds-modal__close"/>
+                        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Contact</h2>
+                    </header>
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                        <table class="slds-table slds-table--bordered slds-table--striped">
+                <thead>
+                    <tr>
+                        <th><strong> ID </strong></th>
+                        <th> <strong>  Name </strong> </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <aura:iteration items="{!v.ContactRec}" var="con" >
+                        <tr>
+                            
+                            <td>
+                                <ui:inputText label="Enter text   " class="field" value="{!con.Id}" />
+                            </td>
+                            <td> 
+                                <ui:inputText label="Enter some text   " class="field" value="{!con.Name}" />  
+                            </td>
+                           
+                        </tr>
+                        
+                    </aura:iteration>
+                </tbody>
+            </table>
+
+                    </div>
+                    <footer class="slds-modal__footer">
+                        <lightning:button variant="neutral" 
+                                          label="Cancel"
+                                          title="Cancel"
+                                          onclick="{! c.closeModel }"/>
+                        <lightning:button variant="brand" 
+                                          label="Like and Close"
+                                          title="Like and Close"
+                                          onclick="{! c.likenClose }"/>
+                    </footer>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+            
+        </aura:if>
+    </div>
+</aura:component>

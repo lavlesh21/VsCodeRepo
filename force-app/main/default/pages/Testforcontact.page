@@ -1,0 +1,5 @@
+<apex:page standardController="contact" recordSetVar="contacts" sidebar="false">
+    <div class="source-center-slds">
+       <apex:enhancedList type="contact" height="1000" rowsPerPage="10" customizable="true" id="YourListViewId"></apex:enhancedList>       
+   </div>
+</apex:page>

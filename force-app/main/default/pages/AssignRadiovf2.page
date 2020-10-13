@@ -1,0 +1,18 @@
+<apex:page standardController="contact" extensions="AssignRadioButtonApx">
+    <apex:form >
+     <apex:pageBlock >
+         <apex:pageBlockButtons >
+         	<apex:commandButton action="{!Next}" value="Next"/>
+         </apex:pageBlockButtons>
+      <apex:pageBlockTable value="{!selectCon}" var="con" >
+         <apex:column headerValue="Name" >
+           <apex:inputField value="{!con.name}"/> 
+         </apex:column>
+         <apex:column headerValue="Phone">
+           <apex:inputText value="{!con.Phone}"/> 
+         </apex:column> 
+      </apex:pageBlockTable> 
+     </apex:pageBlock>
+        
+    </apex:form>
+</apex:page>

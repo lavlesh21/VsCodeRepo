@@ -1,0 +1,13 @@
+<aura:component >
+    
+    <aura:attribute name="FirstName" type="String" default="Marc Benioff" />
+    <aura:attribute name="Age" type="Integer" default="52"/>
+    <aura:attribute name="isMale" type="Boolean" default="true"/>
+    
+   <p>Name of Salesforce CEO is {!v.FirstName}</p>
+ 
+   <p>{!v.FirstName} is {!v.Age} Years Old.</p>
+ 
+   <p>{!v.FirstName} is male? = {!v.isMale}</p>
+    
+</aura:component>

@@ -1,0 +1,30 @@
+<apex:page controller="Today30April1apx">
+    <apex:form >
+    	<apex:pageBlock >
+            <apex:commandButton action="{!inputofajd}" value="Send" />
+        	<apex:pageBlockSection columns="1" >
+                <apex:selectList size="1" label="Customers" >
+            	<apex:selectOptions value="{!accountname}" >
+                </apex:selectOptions>
+            </apex:selectList>
+            	<apex:pageBlockTable value="{!wrap}" var="m" id="abc">
+                    <apex:column >
+                        <apex:inputCheckbox value="{!m.selectRadio}" styleClass="inputId" id="inputId" >
+                                <apex:actionSupport action="{!inputofajd}" event="onchange" reRender="abc" >
+                             </apex:actionSupport>
+                            </apex:inputCheckbox>
+                       
+                    </apex:column>
+                    
+                    <apex:column value="{!m.line1.name}" />
+                    <apex:column value="{!m.line1.id}" />
+                    <apex:column >
+                        <apex:outputText value="{!m.line1.Merchendise__r.name}" rendered="{!if(m.selectRadio == false,true,false)}" />
+                        <apex:inputText value="{!m.line1.Merchendise__r.name}" rendered="{!if(m.selectRadio == true,true,false)}"/>
+                </apex:column>
+                </apex:pageBlockTable>
+            
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

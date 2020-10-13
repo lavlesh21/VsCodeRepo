@@ -1,0 +1,27 @@
+<apex:page standardController="Salesrep_Adj_Price__c" extensions="PricingAppapx" >
+    {!$Label.MyLabel}
+    <apex:form >
+    	<apex:pageBlock >
+            <apex:pageBlockButtons location="Bottom" >
+            <apex:commandButton value="Save" action="{!savebtn}" />
+            </apex:pageBlockButtons>
+        	<apex:pageBlockSection >
+                <apex:selectList label="Customer" size="1" value="{!customer}" >
+                    <apex:selectOptions value="{!allcustomer}"  >
+                    </apex:selectOptions>
+                </apex:selectList>
+                <apex:inputField value="{!Salesrep_Adj_Price__c.Start_Date__c}" />
+                <apex:inputField value="{!Salesrep_Adj_Price__c.End_Date__c}" />
+            
+            </apex:pageBlockSection>
+            <apex:pageBlockSection >
+            	<apex:pageBlockTable value="{!selesrec}" var="s" >
+                    <apex:column headerValue="Salesrep" value="{!s.acc.name}" />
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        
+    
+    
+    </apex:form>
+</apex:page>

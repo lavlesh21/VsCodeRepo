@@ -1,0 +1,17 @@
+<apex:page sidebar="false" standardController="Merchandise__c" >
+<apex:form >
+<apex:pageBlock title="Merchandise Detail" >
+    <apex:pageBlockButtons >
+        <apex:commandButton value="Save" action="{!save}" />
+    </apex:pageBlockButtons>
+<apex:pageBlockSection >
+<apex:inputField value="{!Merchandise__c.name}" required="true"/>
+<apex:inputField value="{!Merchandise__c.Merchandise_Description__c}"/>
+<apex:inputField value="{!Merchandise__c.country__c}"/>
+<apex:inputField value="{!Merchandise__c.State__c}"/>
+</apex:pageBlockSection>
+</apex:pageBlock>
+
+</apex:form>
+
+</apex:page>

@@ -1,0 +1,20 @@
+<apex:page controller="assignmentapx" >
+    <apex:form >
+    	<apex:pageBlock >
+        	<apex:pageBlockSection >
+            	<apex:pageBlockTable value="{!recordsofcontact}" var="c">
+                    <apex:column >
+                        <apex:selectRadio >
+                        	<apex:selectOptions value="{!idofcontact}"/>
+                        </apex:selectRadio>
+                    </apex:column>
+                    <apex:column value="{!c.name}" />
+                    <apex:column value="{!c.Email}" />
+                    <apex:column value="{!c.Fax}" />
+                    <apex:column value="{!c.MobilePhone}" />
+                    <apex:column value="{!c.Phone}" />
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

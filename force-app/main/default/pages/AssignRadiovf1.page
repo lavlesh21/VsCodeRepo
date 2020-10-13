@@ -1,0 +1,24 @@
+<apex:page standardController="Contact" extensions="AssignRadioButtonApx">
+    <apex:form >
+     <apex:pageBlock >
+         <apex:pageBlockButtons >
+         	<apex:commandButton action="{!go}" value="GO" />
+         </apex:pageBlockButtons>
+       <apex:pageBlockSection >
+         <apex:pageBlockTable value="{!contacts}" var="c">
+                    <apex:column headerValue="Radio">
+                        <input type="radio">
+                        <br/>
+                        <apex:actionSupport event="onclick" reRender="a">
+                            <apex:param name="conId" value="{!c.id}" assignTo="{!conId}" />
+                        </apex:actionSupport>
+                    </input>
+                </apex:column> 
+                <apex:column value="{!c.Name}"/>
+                
+            </apex:pageBlockTable>
+       </apex:pageBlockSection>
+     </apex:pageBlock>
+    
+    </apex:form>
+</apex:page>

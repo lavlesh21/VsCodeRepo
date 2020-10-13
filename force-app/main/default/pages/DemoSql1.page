@@ -1,0 +1,14 @@
+<apex:page controller="Demosql">
+    <apex:form >
+        <apex:pageblock title="Records" >
+       		<apex:pageblockbuttons location="top" >
+        		<apex:commandButton value="records" action="{!allrecord}"/>
+       		</apex:pageblockbuttons>
+        	<apex:pageblocktable value="{!acc}" var="a">
+        		<apex:column value="{!a.id}"/>
+        		<apex:column value="{!a.name}"/>
+            </apex:pageblocktable>
+        </apex:pageblock>
+        
+    </apex:form>
+</apex:page>

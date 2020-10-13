@@ -1,0 +1,17 @@
+<apex:page controller="chooseColor">
+
+    <apex:form >
+
+       <select id="chooseColor" name="chooseColor" size="1">
+
+    <option value="red">Red</option>
+
+    <option value="white">White</option>
+
+   <option value="blue" selected="selected">Blue</option>
+</select>
+
+
+    </apex:form>
+
+</apex:page>

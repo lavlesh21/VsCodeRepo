@@ -1,0 +1,50 @@
+<aura:component >
+    <aura:attribute name="ContactRec1" type ="List" />
+    <aura:handler  event="c:Result" action="{!c.handleComponentEvent}"/>
+   
+    <div class="slds-m-around_xx-large">
+            
+            <table class="slds-table slds-table--bordered slds-table--cell-buffer" role="grid">      
+                <thead>  
+                    <tr class="slds-text-title--caps">
+                       
+                        <th scope="col">
+                            <div class="slds-truncate" title="Name">Name</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate" title="Account">Account</div>
+                        </th>
+                        
+                        <th scope="col">
+                            <div class="slds-truncate" title="Phone">Phone</div>
+                        </th>
+                        
+                        <th scope="col">
+                            <div class="slds-truncate" title="Email">Email</div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>        
+                    <aura:iteration items="{!v.ContactRec1}" var="con">
+                        <tr>
+                           
+                            <th scope="row">
+                                <div class="slds-truncate" title="{!con.Name}">{!con.Name}</div>
+                            </th>
+                            <td>
+                                <div class="slds-truncate" title="{!con.Account.Name}">{!con.Account.Name}</div>
+                            </td>
+                            <th scope="row">
+                                <div class="slds-truncate" title="{!con.Phone}">{!con.Phone}</div>
+                            </th>
+                            <td>
+                                <div class="slds-truncate" title="{!con.Email}">{!con.Email}</div>
+                            </td>
+                        </tr>
+                    </aura:iteration>
+                </tbody>
+            </table>
+            
+        </div>
+	
+</aura:component>

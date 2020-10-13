@@ -1,0 +1,11 @@
+<aura:component implements="force:appHostable">
+    <aura:attribute name="finalvalue" type="Integer" />
+   <!-- <aura:registerEvent name="loadMyEvent" type="c:Result"/> -->
+    <p>Hello From Component1</p>
+    <br/>
+    <ui:inputNumber aura:id="Input1" label="First Value" />
+    <ui:inputNumber aura:id="Input2" label="Second Value" />
+    <ui:button label="Sum" press="{!c.Add}"/>
+    <br/>
+    <!--<c:DisplayResult  Get_Result ="{!v.finalvalue}"/>-->
+</aura:component>

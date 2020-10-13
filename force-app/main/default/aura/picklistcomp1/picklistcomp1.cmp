@@ -1,0 +1,65 @@
+<aura:component controller="picklistLightning">
+    <aura:handler name ="init" value="{!this}" action="{!c.doinit}" />
+    <aura:attribute name="ContactRec" type ="List" /> 
+     <aura:registerEvent name="cmpEvent" type="c:Result"/>
+        
+        <div class="slds-m-around_xx-large">
+            
+            <table class="slds-table slds-table--bordered slds-table--cell-buffer" role="grid">      
+                <thead>  
+                    <tr class="slds-text-title--caps">
+                        <th>           
+                            <label class="slds-checkbox">
+                                <ui:inputCheckbox  change="{!c.handleSelectAllContact}" aura:id="selectAll"/>
+                                <span class="slds-checkbox--faux" />
+                                
+                            </label>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate" title="Name">Name</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate" title="Account">Account</div>
+                        </th>
+                        
+                        <th scope="col">
+                            <div class="slds-truncate" title="Phone">Phone</div>
+                        </th>
+                        
+                        <th scope="col">
+                            <div class="slds-truncate" title="Email">Email</div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>        
+                    <aura:iteration items="{!v.ContactRec}" var="con">
+                        <tr>
+                            <th>
+                                <label class="slds-checkbox">
+                                    <ui:inputCheckbox aura:id="checkContact" value="" text="{!con}"/>
+                                    <span class="slds-checkbox--faux" />
+                                    
+                                </label>
+                            </th>
+                            <th scope="row">
+                                <div class="slds-truncate" title="{!con.Name}">{!con.Name}</div>
+                            </th>
+                            <td>
+                                <div class="slds-truncate" title="{!con.Account.Name}">{!con.Account.Name}</div>
+                            </td>
+                            <th scope="row">
+                                <div class="slds-truncate" title="{!con.Phone}">{!con.Phone}</div>
+                            </th>
+                            <td>
+                                <div class="slds-truncate" title="{!con.Email}">{!con.Email}</div>
+                            </td>
+                        </tr>
+                    </aura:iteration>
+                </tbody>
+            </table>
+            <div>
+                <br/>
+                <lightning:button label="Submit" class="slds-button_brand" onclick="{!c.handleSelectedContacts }"  />
+            </div>
+        </div>
+</aura:component>

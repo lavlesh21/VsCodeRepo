@@ -1,0 +1,11 @@
+<aura:component >
+    <aura:attribute name="whom" type="String" access="public" default="Lavelesh"/>
+    <aura:attribute name="Age" type="Integer" access="public" default="23"/>
+    <aura:attribute name="Color" type="String[]" access="public" default="['red','blue','Yellow']"/>
+    <aura:attribute name="Colorlist" type="list" access="public" default="['red','blue','Yellow']"/>
+    <aura:attribute name="Colorset" type="set" access="public" default="['red','blue','Yellow']"/>
+    <aura:attribute name="Contactobj" type="Contact" access="public" />
+    
+    <lightning:button  Value="component Method" label="component Method" onclick="{!c.doclick}"/>
+	
+</aura:component>

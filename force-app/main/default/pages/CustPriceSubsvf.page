@@ -1,0 +1,72 @@
+<apex:page standardController="Salesrep_Adj_Price__c" extensions="CustPriceSubspax" >
+     
+    <apex:form >
+    	<apex:pageBlock title="Customer Info">
+            
+            <apex:pageBlockButtons location="Bottom">
+            	<apex:commandButton value="GO" action="{!go}" />
+            </apex:pageBlockButtons>
+        	<apex:pageBlockSection columns="2">
+                <apex:selectList size="1" label="Customers" value="{!Customer}">
+                     <apex:selectOptions value="{!AccountCustomer}" > 
+                     </apex:selectOptions>   
+                </apex:selectList>
+                <apex:inputField value="{!Salesrep_Adj_Price__c.Start_Date__c}" /> &nbsp; 
+                <apex:inputField value="{!Salesrep_Adj_Price__c.End_Date__c}" />
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        <apex:pageBlock rendered="{!secblock}" >
+            <apex:pageBlockButtons location="Bottom">
+                <apex:commandButton value="Add To List" action="{!addtolistbtn}" />
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection columns="1">
+                <apex:pageBlockTable value="{!salesrec}" var="a" >
+                    <apex:column headerValue="Action" >
+                        <apex:inputCheckbox value="{!a.salescheck}" >
+                        </apex:inputCheckbox>
+                    </apex:column>
+                    <apex:column headerValue="Customer" value="{!a.acc.Customer__c}" />
+                    <apex:column headerValue="Salesrep No" value="{!a.acc.Name}" />
+                    <apex:column headerValue="SKU" value="{!a.acc.Sku__c}" />
+                    <apex:column headerValue="Price" value="{!a.acc.Price__c}" />
+                    <apex:column headerValue="Start date" value="{!a.acc.Start_Date__c}" />
+                    <apex:column headerValue="End Date" value="{!a.acc.End_Date__c}" />
+                
+                </apex:pageBlockTable>
+                <apex:pageBlockTable value="{!oldsuklist}" var="a" >
+                    <apex:column headerValue="Action" >
+                        <apex:inputCheckbox value="{!a.oldcheck}" >
+                        </apex:inputCheckbox>
+                    </apex:column>
+                    <apex:column headerValue="Customer" value="{!a.old.Customer__c}" />
+                    <apex:column headerValue="Salesrep No" value="{!a.old.Name}" />
+                    <apex:column headerValue="Price" value="{!a.old.Price__c}" />
+                
+                </apex:pageBlockTable>
+                <apex:pageBlockTable value="{!fixskulist}" var="a" >
+                    <apex:column headerValue="Action" >
+                        <apex:inputCheckbox value="{!a.fixcheck}" >
+                        </apex:inputCheckbox>
+                    </apex:column>
+                    <apex:column headerValue="Salesrep No" value="{!a.fix.Name}" />
+                    <apex:column headerValue="Price" value="{!a.fix.Price__c}" />
+                
+                </apex:pageBlockTable>
+            
+            </apex:pageBlockSection>
+        
+        </apex:pageBlock>
+        <apex:pageBlock >
+            <apex:variable value="{!1}" var="count" />
+            <apex:pageBlockTable value="{!finallist}" var="a" >
+                {!count}
+                    <apex:column headerValue="Salesrep No" value="{!a.sku}" />
+                   <apex:variable value="{!count+1}" var="count" />
+                
+                </apex:pageBlockTable>
+           
+        </apex:pageBlock>
+    
+    </apex:form>
+    
+</apex:page>

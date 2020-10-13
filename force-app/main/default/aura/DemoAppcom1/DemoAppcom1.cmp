@@ -1,0 +1,10 @@
+<aura:component controller="DemoAppApx">
+    <aura:registerEvent name="sampleCmpEvent" type="c:SampleComponentEvent" />
+   <aura:attribute name="namevalue" type="string"/>
+    <aura:attribute name="Acts" type="Account[]"/>
+   <lightning:input name="Name" value="{!v.namevalue}" placeholder="type your first name..." label="Enter Name" />
+  
+    <lightning:button variant="success" label="GO" title="GO" onclick="{!c.handleClick }"/>    
+    
+
+</aura:component>

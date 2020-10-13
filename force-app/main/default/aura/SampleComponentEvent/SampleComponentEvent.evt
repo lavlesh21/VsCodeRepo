@@ -1,0 +1,4 @@
+<aura:event type="Application" description="Sample Component Event">
+    <aura:attribute name="AccountList" type="Account[]"  />
+    <aura:attribute name="renderdvalue" type="boolean"  />
+</aura:event>

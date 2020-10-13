@@ -1,0 +1,48 @@
+<apex:page StandardController="Contact" extensions="ContactWithRadioController" showHeader="false">
+     <apex:form >
+         <apex:pageBlock >
+                <apex:commandButton value="Save" action="{!savingContact}" />
+                    <apex:pageBlockTable value="{!contactList}" var="c">
+                         <apex:column >
+                            <input type="radio" name="selectRadio" id="radio" value="{!c.selected}" > 
+                              
+                                 <apex:actionSupport event="onchange" status="buttonStatus" reRender="phoneid"  action="{!show}" >
+                                 <apex:param name="paramforradio" assignTo="{!paramforradio}" value="{!c.con.id}" />
+                                 </apex:actionSupport>
+                            
+                        </input > 
+                           <!--  
+                             <apex:selectRadio  value="{!c.selected}" styleClass="myChk" onclick="changeValue(this)">
+								</apex:selectRadio>
+
+                                    <script type="text/javascript">
+                                        function changeValue(radioButton) {
+                                            var chk = document.getElementsByClassName('myChk');
+                                    
+                                            for (var i=0; i<chk.length; i++) {
+                                                if(radioButton.value == chk[i].value) {
+                                                    chk[i].checked = true;
+                                                } else {
+                                                    chk[i].checked = false;
+                                                }
+                                            }
+                                        }
+                                    </script>
+							-->
+                          </apex:column>
+                        <apex:column value="{!c.con.Name}" >
+                          
+                       </apex:column>
+                       <apex:column headerValue="Phone" id="phoneid" >
+                           <apex:outputField value="{!c.con.MobilePhone}" rendered="{!if(c.selected !=True,true,false)}" >       
+                                
+                            </apex:outputField>
+                             <apex:outputField value="{!c.con.MobilePhone}" rendered="{!if(c.selected ==True,true,false)}">       
+                                <apex:inlineEditSupport event="ondblClick"  showOnEdit="SaveButton" hideOnEdit="massdelete"/>
+                            </apex:outputField>
+                       </apex:column>
+                     </apex:pageBlockTable>
+                         </apex:pageBlock>
+             </apex:form>
+     
+ </apex:page>

@@ -1,0 +1,12 @@
+<apex:page >
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Press" oncomplete="document.getElementById('dateid').innerHTML = Date()" />
+            </apex:pageBlockButtons>
+            <p id='dateid'>
+                
+            </p>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

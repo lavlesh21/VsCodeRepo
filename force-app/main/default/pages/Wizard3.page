@@ -1,0 +1,8 @@
+<apex:page standardController="Contact" extensions="WizardForContact">
+    <apex:form >
+     <apex:pageBlock title="Confirmatiom">
+          you successfully  updated This Record.
+        
+     </apex:pageBlock>
+    </apex:form>
+</apex:page>

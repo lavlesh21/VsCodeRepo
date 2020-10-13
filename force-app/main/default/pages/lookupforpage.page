@@ -1,0 +1,34 @@
+<apex:page controller="lookupforpageapex" title="Search" showHeader="false" sideBar="false" tabStyle="Merchandise__c"  >
+ <apex:form id="myForm">
+     <script>
+     function selectAllFinalList(obj,receivedInputID){
+        var inputCheckBox = document.getElementsByClassName("inputId");
+        for(var i=0; i<inputCheckBox.length; i++){
+            if(inputCheckBox[i].id.indexOf(receivedInputID)!=-1){
+                inputCheckBox[i].checked = obj.checked;
+            }
+        }
+    }
+     </script>
+     
+    <apex:pageBlock id="searchResults">
+        <apex:pageBlockButtons location="Bottom">
+            <apex:commandButton value="Go" action="{!go}"  />
+        </apex:pageBlockButtons>
+        <apex:pageBlockSection columns="1">
+            <apex:pageBlockTable value="{!listofselecteditem}" var="a" >
+                <apex:column >
+                    <apex:facet name="header">
+                                <apex:inputCheckbox onclick="selectAllFinalList(this,'inputId')"/>
+                    </apex:facet> 
+                    <apex:inputCheckbox value="{!a.selected}" id="inputId" styleClass="inputId"/>
+                </apex:column>
+               <apex:column value="{!a.merchandise.name}" /> 
+                <apex:column >
+                <apex:outputLink value="javascript:top.window.opener.lookupPick2('{!FormTag}','{!TextBox}_lkid','{!TextBox}','{!a.merchandise.id}','{!a.merchandise.name}', false)" rendered="{!NOT(ISNULL(a.merchandise.Id))}">{!a.merchandise.name}</apex:outputLink>
+                </apex:column>
+            </apex:pageBlockTable>
+       </apex:pageBlockSection>
+    </apex:pageBlock>
+ </apex:form>
+</apex:page>

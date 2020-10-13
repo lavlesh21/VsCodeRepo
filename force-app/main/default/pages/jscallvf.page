@@ -1,0 +1,20 @@
+<apex:page controller="jscall" >
+    <script>
+    function myJavascriptFunc()
+    {
+        CallApexMethod(); 
+    }
+    </script>
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Hit Me" onclick="myJavascriptFunc();return false;"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockTable value="{!record}" var="v" >
+                <apex:column headerValue="Name" value="{!v.name}" />
+            </apex:pageBlockTable>
+            <apex:actionFunction name="CallApexMethod" action="{!btn1}" rerender="showstate"/>
+            <apex:outputText value="{!abc}" id="showstate" />
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,30 @@
+<apex:page controller="MyClassDemo22" >
+<apex:form >
+<apex:pageBlock >
+<apex:pageBlockSection >
+<apex:selectList label="type"  Size="1" required="true"   >
+    <apex:actionSupport event="onchange" action="{!customer}"/>
+    <apex:selectoption itemValue="Prospect" ></apex:selectoption>
+    <apex:selectoption itemValue=" Customer - Direct" ></apex:selectoption>
+</apex:selectList>
+</apex:pageBlockSection>
+<apex:pageBlockTable value="{!tellme1}" var="a">
+<apex:column value="{!a.Name}"/>
+<apex:column value="{!a.Type}"/>
+<apex:column value="{!a.Industry}"/>
+<apex:column value="{!a.Fax}"/>
+<apex:column value="{!a.Phone}"/>
+
+</apex:pageBlockTable>
+
+<apex:pageBlockTable value="{!tellme2}" var="b">
+<apex:column value="{!b.Name}"/>
+<apex:column value="{!b.Type}"/>
+<apex:column value="{!b.Industry}"/>
+<apex:column value="{!b.Fax}"/>
+<apex:column value="{!b.Phone}"/>
+
+</apex:pageBlockTable>
+</apex:pageBlock>
+</apex:form>
+</apex:page>

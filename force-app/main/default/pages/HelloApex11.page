@@ -1,0 +1,28 @@
+<apex:page controller="MyApexclass" >
+<apex:form >
+<apex:pageBlock >
+<apex:pageBlockSection >
+<apex:commandButton value=" Prospect" action="{!abc}"/>  
+<apex:commandButton value="Customer - Direct" action="{!abc}"/> 
+
+</apex:pageBlockSection>
+<apex:pageBlockTable value="{!acct1}" var="a">
+<apex:column value="{!a.Name}"/>
+<apex:column value="{!a.Type}"/>
+<apex:column value="{!a.Industry}"/>
+<apex:column value="{!a.Fax}"/>
+<apex:column value="{!a.Phone}"/>
+
+</apex:pageBlockTable>
+
+<apex:pageBlockTable value="{!acct2}" var="b">
+<apex:column value="{!b.Name}"/>
+<apex:column value="{!b.Type}"/>
+<apex:column value="{!b.Industry}"/>
+<apex:column value="{!b.Fax}"/>
+<apex:column value="{!b.Phone}"/>
+
+</apex:pageBlockTable>
+</apex:pageBlock>
+</apex:form>
+</apex:page>

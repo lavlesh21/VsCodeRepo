@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>testfronull</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND( ISCHANGED( Account__c ),PRIORVALUE(Account__c) !=null)</errorConditionFormula>
+    <errorMessage>yes this ids fire</errorMessage>
+</ValidationRule>

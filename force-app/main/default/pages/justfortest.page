@@ -1,0 +1,9 @@
+<apex:page controller="justfortest" >
+    <apex:form >
+        
+        <apex:outputText value="{!LEFT(abc,5)}"  ></apex:outputText>
+        <input type = "text" name = "first_name" value = "{!abc}" maxlength = "5" />
+        <br/>
+        <apex:commandButton value="ttttttt" action="{!go}" />
+    </apex:form>
+</apex:page>

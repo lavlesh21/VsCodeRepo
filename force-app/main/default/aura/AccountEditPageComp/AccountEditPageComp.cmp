@@ -1,0 +1,14 @@
+<aura:component controller="AccountEditapx" >
+    <aura:attribute name="newAccount" type="Account[]"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"  />
+    <h1>Hello</h1>
+    <aura:iteration items="{!v.newAccount}" var="acc" >
+        <div>
+            <force:recordView recordId="{!acc.Id}" type="MINI"/>
+        </div>
+        <div>
+            <force:recordView recordId="{!acc.Name}" type="MINI"/>
+        </div>
+                        
+        </aura:iteration>
+</aura:component>

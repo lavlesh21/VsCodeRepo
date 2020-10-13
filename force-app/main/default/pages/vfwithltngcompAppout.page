@@ -1,0 +1,17 @@
+<apex:page >
+    <apex:includeLightning />
+	<div id="newRacecomp" />
+    <script>
+    $Lightning.use("c:RaceTrackerApp", function() { // Lightning out app 
+            // Create component dynamically
+            $Lightning.createComponent("c:NewRace", // name of the lighting component
+                                     {}, //Attribute of the component
+                                     "newRacecomp", //id of the visualforce component where lighting component will show
+                                     function(cmp) { 
+                                         console.log('hello');
+                                         //callback function
+              // write the code 
+          });
+        });
+    </script>
+</apex:page>

@@ -1,0 +1,5 @@
+<apex:page >
+    <apex:form >
+        <c:smartserchcompo ComponentLabel="Enter Account Name : "/>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,83 @@
+<apex:page standardController="Salesrep_Adj_Price__c" extensions="PricingSubspricesubsapx" >
+    <script>
+    function setFocusOnLoad() {
+    } 
+    </script>
+    <apex:form >
+        <apex:pageBlock >
+             <apex:actionStatus id="status">
+                <apex:facet name="start">
+                    <div style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; opacity: 0.25; z-index: 1000; background-color: black;">
+                        &nbsp;
+                    </div>
+                    <div style="position: fixed; left: 0; top: 0; bottom: 0; right: 0; z-index: 1001; margin: 15% 50%">
+                        <div style="display: inline-block; padding: 2px; background-color: #fff; width: 125px;">
+                            <img src="/img/loading.gif" style="float: left; margin: 8px;" />
+                            <span style="display: inline-block; padding: 10px 0px;">Please Wait...</span>
+                        </div>
+                    </div>
+                </apex:facet>
+            </apex:actionStatus>
+            <apex:pageBlockButtons location="Bottom">
+            	<apex:commandButton value="Next" action="{!nxtbtn}" status="status" />
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection title="Customer Info" collapsible="false">
+                <apex:selectList label="Customer" size="1" value="{!customer}" >
+                	<apex:selectOptions value="{!customerlist}">
+                    </apex:selectOptions>  
+                </apex:selectList>
+                <apex:inputField value="{!Salesrep_Adj_Price__c.Start_Date__c}" /> &nbsp;
+                <apex:inputField value="{!Salesrep_Adj_Price__c.End_Date__c}" />
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        
+        <apex:pageBlock >
+            <apex:pageBlockButtons >
+            	<apex:commandButton value="Add to Finallist"  action="{!Finallistbtn}" />
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection columns="1" title="SalesRep Records" collapsible="false" >
+                <apex:pageBlockTable var="sales" value="{!wraplist }" title="salesrep" >
+                    <apex:column >
+                        <apex:inputCheckbox value="{!sales.salesrepcheck}" />
+                    </apex:column>
+                    
+                  <!--  <apex:column headerValue="SalesRep No" value="{!sales.salesrep.Name}" /> -->
+                    <apex:column headerValue="SKU" value="{!sales.salesrep.Sku__c}" />
+                    <apex:column headerValue="Price" value="{!sales.salesrep.Price__c}" />
+                    <apex:column headerValue="Start Date" value="{!sales.salesrep.Start_Date__c}" />
+                    <apex:column headerValue="End Date" value="{!sales.salesrep.End_Date__c}" />
+                </apex:pageBlockTable>
+                
+                <apex:pageBlockTable var="sales" value="{!oldskulist }" >
+                    <apex:column >
+                        <apex:inputCheckbox value="{!sales.oldcheck}" />
+                    </apex:column>
+                    
+                    <apex:column headerValue="SKU" value="{!sales.oldsku.Name}" />
+                    <apex:column headerValue="Price" value="{!sales.oldsku.Price__c}" />
+                </apex:pageBlockTable>
+                
+                <apex:pageBlockTable var="sales" value="{!fixskulist }" >
+                    <apex:column >
+                        <apex:inputCheckbox value="{!sales.fixcheck}" />
+                    </apex:column>    
+                    
+                    <apex:column headerValue="SKU" value="{!sales.fixsku.Name}" />
+                    <apex:column headerValue="Price" value="{!sales.fixsku.Price__c}" />
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        <apex:pageBlock >
+        	<apex:pageBlockSection collapsible="false" title="Final List">
+            	<apex:pageBlockTable value="{!finallist}" var="f" >
+                	<apex:column headerValue="SKU" value="{!f.name}" />
+                    <apex:column headerValue="Price" value="{!f.Price}" />
+                </apex:pageBlockTable>
+            
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    
+    </apex:form>
+    
+    
+</apex:page>

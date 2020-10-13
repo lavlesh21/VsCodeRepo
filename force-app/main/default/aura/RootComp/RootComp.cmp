@@ -1,0 +1,7 @@
+<aura:component >
+    <aura:attribute name="Message" type="String" default="Hello World" />
+    <aura:attribute name="Message2" type="String" />
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>
+    <ui:outputText value="{!v.Message}" />
+	
+</aura:component>

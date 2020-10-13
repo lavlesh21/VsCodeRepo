@@ -1,0 +1,4 @@
+<aura:event type="APPLICATION">
+    <aura:attribute name="Pass_Result" type="Integer"/>
+    <aura:attribute name="ContactRec" type ="contact" />
+</aura:event>

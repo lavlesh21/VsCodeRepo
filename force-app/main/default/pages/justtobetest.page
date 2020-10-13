@@ -1,0 +1,21 @@
+<apex:page controller="justtobetest" >
+    
+    
+    <apex:form >
+        <apex:outputPanel >
+    	<apex:pageBlock id="t1" >
+        	<apex:pageBlockSection >
+            	<apex:inputfield label="Sku"  value="{!f[0].name}" >
+                </apex:inputfield>
+					<apex:inputfield label="Test"     value="{!f[0].test__c}" >
+                        <apex:actionSupport event="onchange" rerender="t1" />
+                </apex:inputfield>
+                    <apex:inputfield label="Price" required="True" rendered="{!IF(f[0].test__c != NULL, true, false )}" value="{!f[0].price__c}" />
+               		<apex:inputfield label="Price " rendered="{!IF(f[0].test__c == NULL, true, false )}"
+                                      value="{!f[0].price__c}" />
+            </apex:pageBlockSection>
+            <apex:commandButton value="Go" action="{!go}" />
+        </apex:pageBlock>
+            </apex:outputPanel>
+    </apex:form>
+</apex:page>

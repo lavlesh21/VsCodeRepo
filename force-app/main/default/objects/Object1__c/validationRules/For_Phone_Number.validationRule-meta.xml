@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>For_Phone_Number</fullName>
+    <active>true</active>
+    <errorConditionFormula>ISNUMBER( Object_Phone_No__c )</errorConditionFormula>
+    <errorDisplayField>Object_Phone_No__c</errorDisplayField>
+    <errorMessage>Please Enter Valid Phone Number</errorMessage>
+</ValidationRule>

@@ -1,0 +1,7 @@
+<apex:page standardController="Contact" extensions="AssignRadioButtonApx">
+    <apex:form >
+     <apex:pageBlock title="Confirmatiom">
+          you successfully  updated This Record.
+     </apex:pageBlock>
+    </apex:form>
+</apex:page>

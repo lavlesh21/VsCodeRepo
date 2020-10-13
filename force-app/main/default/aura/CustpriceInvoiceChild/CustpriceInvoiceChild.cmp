@@ -1,0 +1,43 @@
+<aura:component >
+    <aura:handler event="c:SampleApplicationEvent" action="{!c.component2Event}"/>
+    <aura:attribute name="FinalRec" type="Object"/>
+    <div class="slds-m-top_medium">
+        <div class="slds-text-heading--large"><strong>Final Records</strong> </div>
+    </div>
+    <div>
+        <table class="slds-table slds-table--bordered slds-table--striped">
+            <thead>
+                <tr>
+                   
+                    <th><strong> Name </strong></th>
+                    <th> <strong>  Price </strong> </th>
+                    <th> <strong>  Action </strong> </th>
+                </tr>
+            </thead>
+            <tbody>
+                <aura:iteration var="salesrep" items="{!v.FinalRec}">
+                        <tr>
+                            
+                            <td> 
+                            <aura:if isTrue="{!salesrep.Name != null}">
+                               {!salesrep.Name}
+                                <aura:set attribute="else">
+                                   {!salesrep.Sku__c}
+                                </aura:set>
+                            </aura:if> </td>
+                            <td> {!salesrep.Price__c}  </td>
+                            <td> 
+                              <lightning:button variant="brand" label="Edit" title="Edit" onclick="{!c.EditBtn }" />
+                                <lightning:button variant="brand" label="Delete" title="Delete" onclick="{!c.DeleteBtn }" />
+                            </td>
+                        </tr>
+                    
+                </aura:iteration>
+            </tbody>
+        </table>
+        
+        
+    </div>
+
+	
+</aura:component>

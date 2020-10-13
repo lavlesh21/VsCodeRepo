@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Close_Job_Applications</fullName>
+    <availability>online</availability>
+    <displayType>massActionButton</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Close Job Applications</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <requireRowSelection>true</requireRowSelection>
+    <url>// Include and initialize the AJAX Toolkit javascript library
+//
+{!REQUIRESCRIPT(&quot;/soap/ajax/10.0/connection.js&quot;)}
+
+// Get the list of job applications that should be closed by using the
+// $ObjectType merge field to indicate the type of record Ids that
+// are expected.
+//
+var jobAppIdArr = {!GETRECORDIDS( $ObjectType.Job_Application__c )};
+
+if (jobAppIdArr == null || jobAppIdArr.length == 0) {
+    alert(&quot;Please select the job applications you wish to reject.&quot;);
+
+} else {
+
+    // Retrieving the job applications that should be deleted from
+    // the database is inefficient and unnecessary. Instead, create
+    // new job application records for each job application that
+    // should be updated, store them in an array, and then use the
+    // update API call.
+    //
+    var jobApps = new Array();
+
+    for (var i = 0; i &lt; jobAppIdArr.length; i++) {
+        var jobApp = new sforce.SObject(&quot;Job_Application__c&quot;);
+
+        // Since we&apos;ll be using the update call, we must set the id
+        // on the new job application record.
+        //
+        jobApp.Id = jobAppIdArr[i];
+
+        // Next set the appropriate fields to reject the
+        //application.
+        //
+        jobApp.Picklist__c = &quot;Closed&quot;;
+
+        // Finally add the record to our array.
+        //
+        jobApps.push(jobApp);
+    }
+
+    // Now make the update API call in a try statement so we can
+    // catch any errors. Save the resulting array so we can also
+    // check for problems with individual records.
+    //
+    var callCompleted = false;
+    try {
+        var result = sforce.connection.update(jobApps);
+        callCompleted = true;
+
+    } catch(error) {
+        alert(&quot;Failed to update Job Applications with error: &quot; + error);
+    }
+
+    // Now check for problems with individual records.
+    //
+    if (callCompleted) {
+        for (var i = 0; i &lt; result.length; i++) {
+            if (!result[i].getBoolean(&quot;success&quot;)) {
+                alert(&quot;Job Application (id=&apos;&quot; + jobAppIdArr[i] +
+                      &quot;&apos;) could not be updated with error: &quot; +
+                      result[i].errors);
+            }
+        }
+
+        // Finally, refresh the browser to provide confirmation
+        // to the user that the job applications were rejected.
+        //
+        window.location.reload(true);
+    }
+}</url>
+</WebLink>

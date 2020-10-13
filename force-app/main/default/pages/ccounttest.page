@@ -1,0 +1,68 @@
+<apex:page standardController="contact" extensions="accounttest" recordSetVar="contacts" tabStyle="Contact">
+    <apex:form >
+        <div>
+            <apex:sectionHeader />
+            <apex:selectList label="Customer" size="1"  >
+                	<apex:selectOptions value="{!customerlist}">
+                    </apex:selectOptions>  
+                </apex:selectList>
+       
+        </div>
+        
+    <base target="_parent"/>
+	
+		<apex:pageBlock title="Contact" mode="Edit">
+
+			<table>
+				<tr>
+				<apex:repeat value="{!SerchAlpabet}" var="nn">
+					<td><apex:commandLink action="{!display}"  reRender="pg" >
+                        <apex:param value="{!nn}" name="sss"  assignTo="{!SearchVar}"/> {!nn}
+                        </apex:commandLink>
+                    </td>
+					</apex:repeat>
+				</tr>
+			</table>
+			<apex:outputpanel id="pg">
+
+				<div id="showdata">
+					<apex:pageBlockTable value="{!ShowCon}" var="k">
+                        
+                        
+                        <apex:column headerValue="Action" style="width: 80px" >
+                            <apex:commandLink action="{!URLFOR($Action.contact.Edit, k.Id)}" >Edit |
+                            </apex:commandLink>
+                            <apex:commandLink action="{!URLFOR($Action.contact.Delete, k.Id)}" > Delete
+                            </apex:commandLink>
+                        </apex:column>
+
+					<apex:column headerValue="Name" value="{!k.name}"/> 
+					<apex:column headerValue="Email" value="{!k.email}"/> 
+					<apex:column headerValue="Mobile Phone" value="{!k.MobilePhone}"/> 
+					<apex:column headerValue="Date of Birth" value="{!k.Birthdate}"/> 
+					</apex:pageBlockTable>
+					</div>
+					<div id="nodata" style = "display:none;">
+					<p><b>No record by selected letter.</b></p>
+				</div>  
+				<script>
+					var sze='{!sizee}';
+					sz=parseInt(sze);
+					//  alert(sz);
+					if(sz>0)
+					{
+						document.getElementById('showdata').style.display="block";
+						document.getElementById('nodata').style.display="none";
+					}
+					else
+					{
+						document.getElementById('showdata').style.display="none";
+						document.getElementById('nodata').style.display="block";
+					}
+				</script>   
+			</apex:outputpanel>
+
+		</apex:pageBlock>
+	</apex:form>
+
+</apex:page>

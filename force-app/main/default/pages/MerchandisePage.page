@@ -1,0 +1,47 @@
+<apex:page sidebar="false" controller="MerchandiseClass">
+<apex:form >
+    <apex:pageBlock >
+        <apex:pageBlockButtons >
+            <apex:commandButton value="Save"/>
+            <apex:commandButton value="Save & New"/>
+            <apex:commandButton value="Cancle"/>
+        </apex:pageBlockButtons>
+    
+    <apex:pageBlock title="Merchandise Info" >
+        <apex:pageBlockSection >
+            <apex:inputText label="Merchandise Name" required="true"/>
+            
+            <apex:inputTextarea label="Merchandise Description"/>
+            
+            <apex:selectList label="Country"  value="{!Country}"  Size="1" required="true">
+                <apex:selectoption itemValue="India"></apex:selectoption>
+                <apex:selectoption itemValue="Canada"></apex:selectoption>
+                <apex:selectoption itemValue="USA"></apex:selectoption>
+                <apex:selectoption itemValue="Australia"></apex:selectoption>
+            </apex:selectList> 
+            
+            <apex:selectList label="State" value="{!State}"  Size="1" required="true">
+                <apex:selectoption itemValue="Delhi"></apex:selectoption>
+                <apex:selectoption itemValue="U.P."></apex:selectoption>
+                <apex:selectoption itemValue="Montreal"></apex:selectoption>
+                <apex:selectoption itemValue="Barrie"></apex:selectoption>
+                <apex:selectoption itemValue="los Angeles"></apex:selectoption>
+                <apex:selectoption itemValue="New York"></apex:selectoption>
+                <apex:selectoption itemValue="Perth"></apex:selectoption>
+                <apex:selectoption itemValue="Melbourn"></apex:selectoption>
+                
+            </apex:selectList>
+             
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+    
+    
+     <apex:pageBlock title="Merchandise stock">
+        <apex:pageBlockSection >
+        <apex:inputText label="Merchandise Stock" required="true"/>
+        </apex:pageBlockSection>
+        </apex:pageBlock>
+</apex:pageBlock>
+</apex:form>
+
+</apex:page>

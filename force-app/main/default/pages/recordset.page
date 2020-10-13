@@ -1,0 +1,9 @@
+<apex:page standardController="Merchandise__c" extensions="RecordsetApx" recordSetVar="merchandise" >
+    <apex:form >
+    	<apex:pageBlock >
+        	<apex:pageBlockTable value="{!rec}" var="a" >
+            	<apex:column value="{!a.name}" />
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,13 @@
+<apex:page controller="Apexclass55">
+<apex:pageBlock >
+<apex:pageBlockSection >
+<apex:pageBlockTable value="{!acts}" var="c">
+            <apex:column value="{!c.Name}"/>
+            <apex:column value="{!c.type}"/>
+            <apex:column value="{!c.Industry}"/>
+            <apex:column value="{!c.Fax }"/>
+           
+</apex:pageBlockTable>
+</apex:pageBlockSection>
+</apex:pageBlock>
+</apex:page>

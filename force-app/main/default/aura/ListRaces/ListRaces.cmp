@@ -1,0 +1,29 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes" controller="RaceTrackerApx"  >
+    <aura:attribute name="races" type= "Race__c[]" />
+    <aura:handler name ="init" value="{!this}" action="{!c.doinit}" />
+    <aura:handler event ="c:AddtoRace" action="{!c.handleEvent}" />
+    <div class="slds-card">
+       
+        <aura:iteration items="{!v.races}" var="race" >
+            <header class="slds-card__header slds-grid">
+                <ui:outputText class="slds-text-heading--small" value="{!race.Name}"/> 
+            </header>
+            <div class="slds-card__body">
+                <p class="slds-truncate">Type : 
+                    <ui:outputText value="{!race.Type__c}"/> 
+                </p>
+                <p class="slds-truncate">Attended : 
+                  <ui:outputCheckbox value="{!race.Attended__c}"/>
+                     <!-- <force:outputField value="{!race.Attended__c}"/>-->
+                </p>
+                <p class="slds-truncate">Date : 
+                    <ui:outputText value="{!race.DateTime__c}"/>
+                </p>
+                <p class="slds-truncate">Result : 
+                    <ui:outputText value="{!race.Result__c}"/> 
+                </p>    
+            
+            </div>
+        </aura:iteration>
+    </div>
+</aura:component>

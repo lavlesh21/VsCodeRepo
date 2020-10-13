@@ -1,0 +1,66 @@
+<apex:page controller="Pricing_smartSearchapx" >
+   
+    <script src="https://code.jquery.com/jquery-1.8.2.js"></script>
+    <script src="https://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css"/>
+    <script type="text/javascript">
+     $(document).ready(function() {
+      $( "#Accountname" ).autocomplete({
+      source: function(request, response) {
+              Visualforce.remoting.Manager.invokeAction( '{!$RemoteAction.Pricing_smartSearchapx.populateAccount}',
+            request.term,
+            function(result, event){
+                if (event.status)
+                {
+                    console.log(result);
+                    
+                    response(result);
+                }
+                else
+                {
+                    alert(event.message);
+                }
+            });
+      },
+      select:function( event, ui ){
+             callControllermethod(ui.item.label);
+      }  
+    });
+  } );
+    </script>
+    <apex:form >
+        <apex:pageBlock title="Smart Search" >
+            
+            <apex:actionRegion >
+            <apex:actionFunction name="callControllermethod"  reRender="nothing">
+            </apex:actionFunction>
+        </apex:actionRegion>
+            
+            <apex:pageBlockSection >
+                <b>Enter Text</b> &nbsp;
+                
+           
+                <input type="text" id="Accountname" value="{!searchitem}" />
+                <apex:actionSupport event="onblur" action="{!testmethod1}" />
+           
+          
+                <apex:inputText label="Name" html-placeholder="Customer" value="{!name}" id="abc" >
+                 <apex:actionSupport event="onkeyup"  action="{!go}" reRender="recfor" />  
+                </apex:inputText> 
+            </apex:pageBlockSection>
+            
+            
+            <apex:pageBlockSection columns="1">
+                <apex:pageBlockTable value="{!records}" var="rec" id="recfor" >
+                    <!--apex:column value="{!rec.id}" /-->
+                    <apex:column value="{!rec.name}" />
+                </apex:pageBlockTable>
+                
+            
+            </apex:pageBlockSection>
+            
+            
+        </apex:pageBlock>
+            
+    </apex:form>
+</apex:page>

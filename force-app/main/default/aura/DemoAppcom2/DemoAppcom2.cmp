@@ -1,0 +1,14 @@
+<aura:component >
+    <aura:handler event="c:SampleComponentEvent" action="{!c.parentComponentEvent}"/>
+    <aura:attribute name="renvalue" type="boolean" default="true"/>
+     <aura:attribute name="acctlist" type="Account[]"/>
+    <aura:renderIf isTrue="{!v.renvalue}">
+
+     <aura:iteration items="{!v.acctlist}" var="a" >
+        <p>{!a.Name}</p>
+        <p>{!a.Type}</p>
+        
+    
+    </aura:iteration>
+    </aura:renderIf>
+</aura:component>

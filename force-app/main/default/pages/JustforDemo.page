@@ -1,0 +1,35 @@
+<apex:page standardController="Object1__c">
+    <script>
+function initialiseCalendar(obj, eleId)
+{
+ var element=document.getElementById(eleId);
+ var params='close=true';
+ if (null!=element)
+ {
+  if (element.value.length>0)
+  {
+   // date is formatted dd/mm/yyyy - pull out the month and year
+   var month=element.value.substr(3,2);
+   var year=element.value.substr(6,4);
+   params+=',month='+month;
+   params+=',year='+year;
+  }
+ }
+ 
+}
+    </script>
+
+    <apex:form >
+    	<apex:pageBlock >
+    		<apex:pageBlockSection >
+            	<apex:inputField value="{!Object1__c.Start_Date__c}" onmouseover="initialiseCalendar(this, '{!$Component.startdate}')" />
+                
+            </apex:pageBlockSection>
+    	</apex:pageBlock>
+    </apex:form>  
+
+    
+    
+  
+
+</apex:page>

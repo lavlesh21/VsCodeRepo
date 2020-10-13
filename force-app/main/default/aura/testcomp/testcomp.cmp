@@ -1,0 +1,32 @@
+<aura:component controller='CustPriceInvoiceApx' >
+    <aura:attribute name="AccountName" type="Account" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" /> 
+    <aura:attribute name="SelectedAccount" type="Account" />
+    
+    <div>
+        <table class="slds-table slds-table--bordered slds-table--striped">
+            <thead>
+                <tr>
+                    <th><strong> Action </strong></th>
+                    <th> <strong> Name </strong> </th>
+                </tr>
+            </thead>
+            <tbody>
+                <aura:iteration var="Acc" items="{!v.AccountName}">
+                    <tr>
+                        <td role="gridcell" class="slds-cell-shrink" data-label="Select row Cloudhub">
+                            <label class="slds-checkbox">
+                                <ui:inputCheckbox aura:id="checkbox" text="{!Acc}" click="{!c.update}"  />
+                                <span class="slds-checkbox--faux"></span>
+                            </label>
+                        </td>
+                        <td> {!Acc.Name}  </td>
+                    </tr>
+                    
+                </aura:iteration>
+            </tbody>
+        </table>
+        <c:childcomp AccountRec="{!SelectedAccount}"/>
+        
+    </div>
+</aura:component>

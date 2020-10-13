@@ -1,0 +1,18 @@
+<apex:page controller="CompanyCasesQuery" >
+    <apex:form >
+        <apex:pageBlock title="My Cases">
+         <apex:outputLabel value="View:"/>
+          <apex:selectList value="{!filterId}" size="1">
+           <apex:actionSupport event="onchange" action="{!processRequests}"/>
+             <apex:selectOptions value="{!items}"/>
+           </apex:selectList>
+            <apex:pageBlock >
+                <apex:pageBlockTable value="{!results}" var="c" >
+                    <apex:column headerValue="Case Number" value="{!c.CaseNumber}"/>
+                    <apex:column headerValue="Account Id " value="{!c.AccountId}"/>     
+                    <apex:column headerValue="Case Number" value="{!c.CaseNumber}"/>
+                </apex:pageBlockTable>
+            </apex:pageBlock>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

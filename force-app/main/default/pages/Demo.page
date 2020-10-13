@@ -1,0 +1,23 @@
+<apex:page sidebar="false" controller="Merchandise">
+    <apex:form >
+        <apex:pageBlock title="Merchandise Info" id="idofpage">
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Save"
+                                    onclick="if({!checkbox == true}){
+                                             alert('this is if part');
+                                             }else{
+                                             alert('this is else part'); 
+                                             }" />
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection >
+                <apex:inputCheckbox label="Use Heirachy" value="{!checkbox}"  >
+                    <apex:actionSupport event="onchange" action="{!oncngbtn}" reRender="idofpage"/>
+                </apex:inputCheckbox>
+                <apex:inputText label="Merchandise Name" required="true"/>
+                <apex:inputTextarea label="Merchandise Description"/>
+                <apex:selectList label="Country" value="{!Country}" Size="1" required="true">
+                </apex:selectList> 
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

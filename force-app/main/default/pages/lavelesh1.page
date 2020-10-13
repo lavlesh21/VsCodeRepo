@@ -1,0 +1,27 @@
+<apex:page sidebar="false" controller="LavleshApex" >
+<apex:form >
+<apex:pageBlock >
+                <apex:image url="https://c.ap4.visual.force.com/img/seasonLogos/Winter_18_yeti_175x65.png" alt="Salesforce logo"/>
+                <apex:image url="https://c.ap4.content.force.com/servlet/servlet.ImageServer?id=0156F00000CyJvL&oid=00D6F000001gVRY&lastMod=1510730135000" height="100" width="100" style="margin-left:900px;" onclick="AUthor" />
+</apex:pageBlock>
+
+
+    <apex:pageBlock >
+            <apex:pageBlockButtons >
+            <apex:CommandButton action="{!save}" value="Save"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection >
+                    <apex:inputText label="Name"/>
+                    <apex:inputText label="School"/>
+                    <apex:inputTextarea label="Address"/>
+                       <apex:selectList label="Country"  value="{!Country}"  Size="1" required="true">
+                <apex:selectoption itemValue="India"></apex:selectoption>
+                <apex:selectoption itemValue="Canada"></apex:selectoption>
+                <apex:selectoption itemValue="USA"></apex:selectoption>
+            </apex:selectList> 
+            
+            </apex:pageBlockSection> 
+                   
+</apex:pageBlock>  
+</apex:form>
+</apex:page>

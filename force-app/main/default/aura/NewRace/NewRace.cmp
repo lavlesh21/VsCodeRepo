@@ -1,0 +1,38 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes" controller="RaceTrackerApx" >
+    <ltng:require
+        scripts="{!$Resource.Zoomtest + '/zoomPortal.js'}"
+        afterScriptsLoaded="{!c.scriptsLoaded}" />
+    <aura:attribute name="name" type ="string" />
+    <aura:attribute name="Race" type ="Race__c"  default="{'sobjectType' : 'Race__c',
+                           'Type__c': ''}" />
+    
+    <aura:handler name ="init" value="{!this}" action="{!c.doinit}" />
+    <lightning:recordEditForm objectApiName="Race__c">
+    <div class="slds-form-element">
+        <div class="slds-form-element__control">
+            <lightning:inputField label="Name" aura:id="Name" fieldName="Name" class="slds-input" />
+        </div>
+        <div class="slds-form-element__control">
+          <!--  <ui:inputselect label="Race Type" aura:id="Type" value="{!v.Race.Type__c}" class="slds-input"/>-->
+            <lightning:inputField class="slds-input" fieldName="Type__c"/>
+        </div>
+        <div class="slds-form-element__control">
+            <lightning:inputField label="Date/Time" aura:id="Date" fieldName="DateTime__c" class="slds-input" displayDatePicker="true" />
+        </div>
+        <div class="slds-form-element__control">
+            <lightning:inputField label="Location" aura:id="Location" fieldName="Location__c" class="slds-input" />
+        </div>
+        <div class="slds-form-element__control">
+            <lightning:inputField label="Attended" aura:id="Attended" fieldName="Attended__c" class="slds-checkbox"/>
+        </div>
+        <div class="slds-form-element__control">
+            <lightning:inputField label="Result" aura:id="Result"  fieldName="Result__c" class="slds-input"/>
+        </div>
+        <lightning:button class="slds-m-top_small" type="submit" label="Create new" />
+        <lightning:button class="slds-m-top_small" type="submit" label="profile" onclick="{!c.profiles}"/>
+       <!-- <ui:button label="Submit" press="{!c.newrace}" /> -->
+        
+    </div> 
+        
+    </lightning:recordEditForm>
+</aura:component>

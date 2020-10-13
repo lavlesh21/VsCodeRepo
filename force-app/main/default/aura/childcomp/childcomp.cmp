@@ -1,0 +1,22 @@
+<aura:component >
+    <aura:attribute name="AccountRec" type="Account" />
+    <div>
+    <table class="slds-table slds-table--bordered slds-table--striped">
+            <thead>
+                <tr>
+                   
+                    <th> <strong> Name </strong> </th>
+                </tr>
+            </thead>
+            <tbody>
+                <aura:iteration var="Acc" items="{!v.AccountRec}">
+                    <tr>
+                        <td> {!Acc.Name}  </td>
+                    </tr>
+                    
+                </aura:iteration>
+            </tbody>
+        </table>
+    </div>
+	
+</aura:component>

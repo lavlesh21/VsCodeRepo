@@ -1,0 +1,27 @@
+<apex:page controller="wrapdemopx" >
+    <apex:form >
+    	<apex:pageBlock >
+            <apex:pageBlockButtons location="Bottom">
+                <apex:commandButton value="Next" action="{!nextbtn}" />
+            </apex:pageBlockButtons>
+        	<apex:pageBlockSection >
+            	<apex:pageBlockTable value="{!wraplist}" var="lis">
+                    <apex:column headerValue="Action " >
+                        <apex:inputCheckbox value="{!lis.check}"  />
+                    </apex:column>
+                    
+                    <apex:column value="{!lis.ac.name}" />
+                    <apex:column value="{!lis.ac.type}" />
+                    <apex:column value="{!lis.ac.phone}" />
+                </apex:pageBlockTable>
+                
+                <apex:pageBlockTable value="{!finallist}" var="lis">
+                    <apex:column value="{!lis.nameac}" />
+                    <apex:column value="{!lis.typeac}" />
+                    <apex:column value="{!lis.phoneac}" />
+                </apex:pageBlockTable>
+                
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

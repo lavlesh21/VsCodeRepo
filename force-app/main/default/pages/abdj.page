@@ -1,0 +1,9 @@
+<apex:page standardController="Account" recordSetVar="accounts" tabstyle="account" sidebar="false">
+  <apex:pageBlock >
+   
+     
+      <apex:sectionHeader title="{!$ObjectType.account.labelPlural}"/>
+      <apex:ListViews type="account" /> 
+   
+  </apex:pageBlock>
+</apex:page>

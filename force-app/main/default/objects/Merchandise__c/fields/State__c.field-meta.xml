@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>State__c</fullName>
+    <externalId>false</externalId>
+    <label>State</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>country__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>BOSTON</fullName>
+                <default>false</default>
+                <label>BOSTON</label>
+            </value>
+            <value>
+                <fullName>CHICAGO</fullName>
+                <default>false</default>
+                <label>CHICAGO</label>
+            </value>
+            <value>
+                <fullName>DELHI</fullName>
+                <default>false</default>
+                <label>DELHI</label>
+            </value>
+            <value>
+                <fullName>GOA</fullName>
+                <default>false</default>
+                <label>GOA</label>
+            </value>
+            <value>
+                <fullName>GUJARAT</fullName>
+                <default>false</default>
+                <label>GUJARAT</label>
+            </value>
+            <value>
+                <fullName>NEW YORK</fullName>
+                <default>false</default>
+                <label>NEW YORK</label>
+            </value>
+            <value>
+                <fullName>PUNJAB</fullName>
+                <default>false</default>
+                <label>PUNJAB</label>
+            </value>
+            <value>
+                <fullName>UTTAR PRADESH</fullName>
+                <default>false</default>
+                <label>UTTAR PRADESH</label>
+            </value>
+            <value>
+                <fullName>WASHINGTON DC</fullName>
+                <default>false</default>
+                <label>WASHINGTON DC</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>INDIA</controllingFieldValue>
+            <valueName>DELHI</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>INDIA</controllingFieldValue>
+            <valueName>GOA</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>INDIA</controllingFieldValue>
+            <valueName>GUJARAT</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>INDIA</controllingFieldValue>
+            <valueName>PUNJAB</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>INDIA</controllingFieldValue>
+            <valueName>UTTAR PRADESH</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>USA</controllingFieldValue>
+            <valueName>BOSTON</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>USA</controllingFieldValue>
+            <valueName>CHICAGO</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>USA</controllingFieldValue>
+            <valueName>NEW YORK</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>USA</controllingFieldValue>
+            <valueName>WASHINGTON DC</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

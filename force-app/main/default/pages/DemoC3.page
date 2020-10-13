@@ -1,0 +1,4 @@
+<apex:page >
+ 
+  <c:contactlistviewcomponent listViewName="Super Special Contacts"/>
+</apex:page>

@@ -1,0 +1,39 @@
+<apex:page controller="Renderapx"  >
+    <apex:form >
+    <apex:pageBlock id="PageBlock">
+        <apex:outputText value="Category" style="font-weight:900" /> &nbsp;
+            <apex:selectList value="{!queueName}" size="1" id="first" >
+                    <apex:selectOption itemLabel="--None--" itemValue=""/>
+                    <apex:selectOptions value="{!QueueList}"/>
+                    <apex:selectOption itemLabel="Event/Client Info" itemValue="1"/>
+                    <apex:selectOption itemLabel="Afterhours Emergencies" itemValue="2"/>
+                    <apex:selectOption itemLabel="Staffing or Travel" itemValue="100"/>
+                    <apex:actionSupport event="onchange" rerender="pb"/> 
+            </apex:selectList>
+    </apex:pageBlock>
+
+    <apex:outputPanel id="pb">
+        <apex:pageBlock rendered="{!queueName == '100'}">>
+            <apex:pageBlockSection id="pb1">
+                <apex:outputText value="Please select your staffing Coordinator" style="font-weight:900" /> &nbsp;
+                <apex:selectList value="{!subqueue1}"  size="1" id="second">
+                    <apex:selectOption itemLabel="Jessica Koponen" itemValue="prasad.naga@west.com"/>
+                    <apex:selectOption itemLabel="Carmella Ramirez" itemValue="cramirez@healthadvocate.com"/>
+                    <apex:selectOption itemLabel="June Thai" itemValue="jthai@healthadovcate.com"/>
+                    <apex:selectOption itemLabel="Mary Casillas" itemValue="mcasillas@healthadvocate.com"/>
+                    <apex:selectOption itemLabel="I don’t know" itemValue="ccovarrubias@healthadvocate.com"/> 
+                </apex:selectList>
+            </apex:pageBlockSection>
+
+            <apex:pageBlockSection id="sub2" rendered="{!queueName == '1'}">
+                <apex:outputText value="Please email the Project Manager listed on your detail sheet" style="font-weight:800"/>
+            </apex:pageBlockSection>
+
+            <apex:pageBlockSection id="sub3" rendered="{!queueName == '2'}">
+                <apex:outputText value="Please call 484-567-0827"  style="font-weight:800"/>
+            </apex:pageBlockSection>
+
+        </apex:pageBlock>
+    </apex:outputPanel>
+ </apex:form>
+</apex:page>

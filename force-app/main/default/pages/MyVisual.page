@@ -1,0 +1,38 @@
+<apex:page controller="MyApexClassFor">
+<apex:form >
+<apex:pageBlock >
+<apex:pageBlockSection >
+
+<apex:commandButton value=" Prospect" action="{!Prospact}"/>  
+<apex:commandButton value="Customer - Direct" action="{!Customer}"/> 
+</apex:pageBlockSection>
+
+<apex:pageBlockSection >
+<apex:pageBlockTable value="{!acts}" var="c">
+            <apex:column value="{!c.Name}"/>
+            <apex:column value="{!c.type}"/>
+            <apex:column value="{!c.Industry}"/>
+            <apex:column value="{!c.Fax }"/>
+           
+</apex:pageBlockTable>
+</apex:pageBlockSection>
+
+</apex:pageBlock>
+    
+    <div class="slds-p-horizontal--small slds-size--1-of-1 slds-medium-size--1-of-2">
+        <div class="slds-form-element slds-has-divider--top">
+            <div class="slds-form-element__control">
+                <span class="slds-form-element__static"  >This is Text</span>
+                <span class="SelectMsg" >Please make selection first</span> 
+            </div>
+        </div>
+    </div>
+    </apex:form>
+    <style>
+    .SelectMsg{
+        float: right;
+        margin-top: -8%;
+        font-weight: bold;
+        }
+    </style>
+</apex:page>

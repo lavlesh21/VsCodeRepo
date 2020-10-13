@@ -1,0 +1,23 @@
+<apex:page controller="vfpageapx">
+<apex:form >
+    <apex:pageBlock title="My Data Records" id="thePageBlock">
+        <apex:pageMessages />
+        <apex:actionStatus id="loadingStatus" startText="Please Wait. Processing..." />
+        <apex:pageBlockButtons >
+            <apex:commandButton value="Save All Data" action="{!saveData}" rerender="thePageBlock" status="loadingStatus"/>
+        </apex:pageBlockButtons>
+        <apex:pageBlockTable value="{!dataRecords}" var="rec" id="myTable">
+            <apex:column headerValue="ID" value="{!rec.Id}" /> 
+            <apex:column headerValue="Name"> 
+                <apex:inputText value="{!rec.Name}" />
+            </apex:column>
+            <apex:column headerValue="Update">
+                <apex:commandLink action="{!saveSingleRecord}" rerender="thePageBlock" status="loadingStatus">
+                    Update
+                    <apex:param value="{!rec.id}" name="myRecId" />  
+                </apex:commandLink>
+            </apex:column>
+        </apex:pageblocktable>        
+    </apex:pageBlock>
+</apex:form>
+</apex:page>

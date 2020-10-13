@@ -1,0 +1,9 @@
+<apex:page controller="sqldemo">
+    <apex:pageBlock title="REsult">
+        <apex:pageblockTable value="{!accs}" var="a">
+            <apex:column value="{!a.id}"/>
+            <apex:column value="{!a.name}"/>
+            
+        </apex:pageblockTable>
+    </apex:pageBlock>
+</apex:page>

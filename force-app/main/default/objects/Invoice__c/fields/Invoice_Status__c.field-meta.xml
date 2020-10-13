@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Invoice_Status__c</fullName>
+    <externalId>false</externalId>
+    <label>Invoice Status</label>
+    <required>true</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>BARGAINING</fullName>
+                <default>false</default>
+                <label>BARGAINING</label>
+            </value>
+            <value>
+                <fullName>CLOSE</fullName>
+                <default>false</default>
+                <label>CLOSE</label>
+            </value>
+            <value>
+                <fullName>FINALIZED</fullName>
+                <default>false</default>
+                <label>FINALIZED</label>
+            </value>
+            <value>
+                <fullName>OPEN</fullName>
+                <default>false</default>
+                <label>OPEN</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

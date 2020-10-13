@@ -1,0 +1,4 @@
+@istest
+private class privateapex {
+
+}

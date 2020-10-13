@@ -1,0 +1,22 @@
+<apex:page controller="cc2">
+<apex:form >
+<apex:pageBlock >
+ 
+<apex:commandButton value="opp1" action="{!abc}"/>  
+<apex:commandButton value="opp2" action="{!abc}"/>         
+<apex:pageBlockSection >
+<apex:pageBlockTable value="{!abc}" var="c">
+<apex:column value="{!c.Name}"/>
+            <apex:column value="{!c.Amount}"/>
+            <apex:column value="{!c.StageName}"/>
+            <apex:column value="{!c.CloseDate}"/>
+            <apex:column value="{!c.ExpectedRevenue}"/>
+
+
+
+</apex:pageBlockTable>
+</apex:pageBlockSection>
+
+</apex:pageBlock>
+</apex:form>
+</apex:page>

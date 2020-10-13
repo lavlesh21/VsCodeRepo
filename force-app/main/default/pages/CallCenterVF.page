@@ -1,0 +1,19 @@
+<apex:page docType="html-5.0" showHeader="false" sidebar="false">
+    <script src="https://lavlesh21-dev-ed.my.salesforce.com/support/api/27.0/interaction.js" /> 
+    <script>
+    function enableClickToDial() { 
+        sforce.interaction.cti.enableClickToDial(function (response) {
+            if (response.result) {
+                alert('Click to dial was enabled.');
+            } else {
+                alert('Click to dial was not enabled.');
+            }
+            alert(response.error);
+        }
+      );
+    }
+    </script>
+    
+    <div>Hello World</div>
+    <button onclick="enableClickToDial();">enable click to dial</button>
+</apex:page>

@@ -1,0 +1,5 @@
+<apex:page standardController="Account" extensions="Justforfunapx" sidebar="false" showHeader="false" >
+   <p style=" margin-left: 27%;margin-top: 0%;">
+       Contact Name: {!contactName}
+    </p> 
+</apex:page>

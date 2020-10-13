@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Validate_stock</fullName>
+    <active>true</active>
+    <errorConditionFormula>LineItem_Stock__c  &gt;  Merchendise__r.Total_Remaing_Items__c</errorConditionFormula>
+    <errorDisplayField>LineItem_Stock__c</errorDisplayField>
+    <errorMessage>You Have Not Enough Stock</errorMessage>
+</ValidationRule>

@@ -1,0 +1,4 @@
+<aura:component >
+	<aura:attribute name="Message" type="String" default="Comp2" />
+    <ui:outputText value="{!v.Message}" />
+</aura:component>

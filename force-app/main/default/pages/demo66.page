@@ -1,0 +1,50 @@
+<apex:page standardController="account" >
+
+
+<apex:pageBlock mode="inlineEdit" title="{!Account.Name}">
+<apex:pageBlockButtons location="Top" >
+
+        <apex:form >
+          <apex:commandButton action="{!edit}" value="Edit"/>
+          <apex:commandButton action="{!delete}" value="Delete"/>
+        </apex:form>
+        </apex:pageBlockButtons>
+
+
+<apex:pageBlockSection title="Account Detail" >
+    <apex:outputField value="{!Account.Name}"/>
+    <apex:outputField value="{!Account.Phone}"/>
+    <apex:outputField value="{!Account.Ownerid}"/>
+    <apex:outputField value="{!Account.Fax}"/>
+    <apex:outputField value="{!Account.AccountNumber}"/>
+    <apex:outputField value="{!Account.Website}"/>
+    <apex:outputField value="{!Account.Site}"/>
+    <apex:outputField value="{!Account.TickerSymbol}"/>
+    <apex:outputField value="{!Account.type}"/>
+    <apex:outputField value="{!Account.Ownership}"/>
+    <apex:outputField value="{!Account.AnnualRevenue}"/>
+    <apex:outputField value="{!Account.Sic}"/>
+    
+    <apex:outputField value="{!account.BillingStreet}" />
+    <apex:outputField value="{!account.BillingCity}" />
+    <apex:outputField value="{!account.BillingState}" />
+    <apex:outputField value="{!account.BillingCountry}" />
+    <apex:outputField value="{!account.BillingPostalCode}" />
+    
+    <apex:outputField value="{!Account.CustomerPriority__c}"/>
+    <apex:outputField value="{!Account.SLA__c}"/>
+    <apex:outputField value="{!Account.SLAExpirationDate__c}"/>
+    <apex:outputField value="{!Account.SLAExpirationDate__c}"/>
+    <apex:outputField value="{!Account.NumberofLocations__c}"/>
+    <apex:outputField value="{!Account.UpsellOpportunity__c}"/>
+</apex:pageBlockSection>
+
+<apex:pageBlockSection title="Related List" columns="1">
+<apex:relatedList list="Contacts"/> 
+<apex:relatedList list="Opportunities"/>
+<apex:relatedList list="Cases"/> 
+
+
+</apex:pageBlockSection>
+</apex:pageBlock> 
+</apex:page>
